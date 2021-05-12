@@ -20,7 +20,7 @@ public:
 		// a remplir : ajouter un test pour que le joueur ne soit pas visible si trop loin
 
 
-		// verifie si on est tourné vers le joueur
+		// verifie si on est tournÃ© vers le joueur
 		switch( ori )
 		{
 		case HAUT:
@@ -44,7 +44,7 @@ public:
 			break;
 		}
 
-		// vérifie si des obstacles sont entre nous et le joueur
+		// vÃ©rifie si des obstacles sont entre nous et le joueur
 		if( obstacles == nullptr ) {
 			std::cout << "Obstacles non initialises!!\n";
 			return;
