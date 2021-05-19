@@ -1,0 +1,305 @@
+- Code 1
+
+	#include <iostream>		// commande préprocesseur : on inclus la librairie qui contient la fonction cout
+	using namespace std;	// on utilise l'espace de nom 'std' afin de ne pas avoir besoin d'écrire 'std::cout' pour utiliser la fonction cout
+
+	int main() 				// point d'entrée du programme! Quand on lancera le fichier exécutable généré, c'est la première fonction qui sera appelée
+	{						// marque le début du corps de la fonction
+		cout << "Hello World!" << endl;		// affiche le message 'Hello World!' dans la console puis va à la ligne suivante
+		return 0;			// arrête le fonctionnement de la fonction et renvoie 0 au programme qui a appelé ce programme-ci
+	}						// marque la fin du corps de la fonction
+
+
+- Exercice 1
+générer la solution
+lancer en ligne de commande
+lancer en mode Debug
+mettre un breakpoint et lancer en mode Debug
+
+jouer à tenter de compiler le programme en modifiant une ou plusieurs lignes de ce programme
+tenter de comprendre le message d'erreur du compilateur!
+Si ça compile mais que ça crash à l'exécution, voir pourquoi
+
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+
+---------------------------------------------
+- Code 2
+
+	#include<iostream>
+	using namespace std;
+
+	int main()
+	{
+	  char a, b;
+	  cout<<"Tapez un caractere : "; 
+	  cin>>a;                     // attend que l'utilisateur ecrive quelque chose et tape la touche entrée. Ce qui est entré par l'utilisateur sera stocké dans la variable a
+	  if( a>='A' && a<='Z' ) {
+		  cout<<"Vous avez tape une majuscule."<<endl;
+		  b = a + ('a'-'A');
+		  cout<<"La minuscule correspondante est "<< b <<endl;
+	  }else if( a>='a' && a<='z' ) {
+		  cout<<"Vous avez tape une minuscule."<<endl;
+		  b = a + ('A'-'a');
+		  cout<<"La majuscule correspondante est "<< b <<endl;
+	  }
+	  else cout<<"Vous n'avez pas tape une lettre."<<endl;
+	  return 0; 
+	}
+
+- Exercice 2
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+
+---------------------------------------------
+- Code 3
+
+	#include <iostream>
+
+	int main()
+	{
+  	using namespace std;
+		int a, b, s;
+		cout << "Tapez la valeur de a : "; cin >> a;
+		cout << "Tapez la valeur de b : "; cin >> b;
+
+		s = a + b;
+
+		cout << "La somme a+b vaut : " << s << endl;
+		return 0;
+	}
+
+- Exercice 3
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+ajouter un test qui verifie que l'utilisateur a entrer que des nombres >0, sinon on affiche un message d'erreur
+faire une boucle tant que la veleur rentrée pour b est <= 0
+
+---------------------------------------------
+- Code 4
+
+	#include <iostream>
+	#include <string>
+	using namespace std;
+
+	int main ()
+	{
+	  string mystr;
+	  cout << "C'est quoi ton petit nom?";
+	  getline( cin, mystr );
+	  cout << "Hello " << mystr << ".\n";
+	  return 0;
+	}
+
+- Exercice 4
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+
+
+---------------------------------------------
+
+- Exercice 5
+fermer Visual Studio
+ouvrir Visual Studio et créer un nouveau projet
+créer un programme qui:
+	- demande ton nom
+	- dis bonjour au nom tapé
+	- demande ton age et ton genre
+	- dis si tu es un(e) enfant, un(e) adolescent(e), un(e) adulte, ou un(e) vieux/vieille
+
+
+---------------------------------------------
+- Code 6
+
+	#include <iostream>
+	using namespace std;
+
+	int max( int num1, int num2 )       // on crée une fonction qui s'appelle max, qui renvoie un nombre entier et qui prend 2 nombres entier en entrée
+	{
+		int result;
+
+		if( num1 > num2 ) result = num1;
+		else result = num2;
+
+		return result;
+	}
+
+	int min( int num1, int num2 )
+	{
+		if( num1 < num2 ) return num1;      // la fonction se termine dès qu'il y a l'instruction return
+        // si on arrive la, c'est que num1 est >= à num2
+		return num2;
+	}
+
+	int main()
+	{
+		int a, b;
+		cout << "Tapez un nombre : "; 
+        cin >> a;
+		cout << "Tapez un autre nombre : "; 
+        cin >> b;
+
+		cout << "nombre Max : " << max( a, b ) << endl;
+		int minres = min( a, b );
+		cout << "nombre Min : " << minres << endl;
+
+		return 0;
+	}
+
+- Exercice 6
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+
+
+---------------------------------------------
+- Code 7
+
+	#include <iostream>
+	using namespace std;
+
+	class Rectangle {
+		int largeur, hauteur;
+	public:
+		void initialisation(int, int);
+		int surface() { return largeur * hauteur; }
+	};
+
+	void Rectangle::initialisation(int x, int y) {
+		largeur = x;
+		hauteur = y;
+	}
+
+	int main() {
+		Rectangle rect;
+		rect.initialisation( 3, 4 );
+		cout << "surface: " << rect.surface();
+		return 0;
+	}
+
+- Exercice 7
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+ajouter le code pour demander la largeur et hauteur et calculer la surface correspondante.
+
+
+---------------------------------------------
+- Code 8
+
+	#include <iostream>
+	using namespace std;
+
+	int monTableau[] = { 16, 2, 77, 40, 12071 };
+
+	int main()
+	{
+		char tabChar[5] = "abcd";
+
+		for( int i = 0; i < 4; ++i ) {
+			cout << tabChar[i];
+		}
+		cout << endl;
+
+		int res = 0;
+		for( int i = 0; i < 5; ++i ){
+			res += monTableau[i];
+		}
+		cout << res;
+
+		return 0;
+	}
+
+- Exercice 8
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+demander à l'utilisateur de rentrer les 5 nombres, les ranger dans le tableau et calculer la somme
+ajouter une fonction qui range les 5 nombres de monTableau du plus petit au plus grand
+
+
+---------------------------------------------
+- Code 9
+
+	#include <iostream>
+	#include <vector>
+    
+	using namespace std;
+
+    class Quadrilatere {
+    public:
+        Quadrilatere( int c1, int c2, int c3, int c4 ) : cote1( c1 ), cote2( c2 ), cote3( c3 ), cote4( c4 ) {};
+
+        int calculPerimetre() { return cote1 + cote2 + cote3 + cote4; };
+        virtual int getNbDimensions() { return 4; };
+
+    //private:
+        int cote1 = 0, cote2 = 0, cote3 = 0, cote4 = 0;
+    };
+
+    class Rectangle : public Quadrilatere {
+    public:
+        Rectangle( int larg, int longueur ) : Quadrilatere( larg, longueur, larg, longueur ) {};
+
+        virtual int calculSurface() { return cote1 * cote2; };
+        int getLargeur() { return cote1; };
+        int getLongueur() { return cote2; };
+        virtual int getNbDimensions() { return 2; };
+    };
+
+    class Carre : public Rectangle {
+    public:
+        Carre( int larg ) : Rectangle( larg, larg ) {};
+
+        virtual int calculSurface() { return cote1 * cote1; };
+        virtual int getNbDimensions() { return 1; };
+    };
+
+
+	int main()
+    {
+        using namespace std;
+
+        Quadrilatere quad1( 10, 5, 4, 7 );
+        Quadrilatere quad2( 5, 1, 7, 2 );
+        Rectangle rec1( 9, 6 );
+        Rectangle rec2( 14, 15 );
+        Carre car1( 20 );
+        Carre car2( 39 );
+
+        Quadrilatere *quad3 = nullptr;
+        quad3 = new Quadrilatere( 1, 2, 3, 4 );
+
+        vector<Quadrilatere*> listeQuads;
+        listeQuads.push_back( &quad1 );
+        listeQuads.push_back( &quad2 );
+        listeQuads.push_back( quad3 );
+        listeQuads.push_back( &rec1 );
+        listeQuads.push_back( &rec2 );
+        listeQuads.push_back( &car1 );
+        listeQuads.push_back( &car2 );
+
+        for( Quadrilatere* q : listeQuads ) {
+            cout << "Nb dimensions : " << q->getNbDimensions() << endl;
+
+            int nbDim = q->getNbDimensions();
+            if( nbDim == 4 )
+                cout << "Perimetre du quadrilatere : " << q->calculPerimetre() << endl;
+
+            else if( nbDim == 2 ) {
+                cout << "Perimetre du rectangle : " << q->calculPerimetre() << endl;
+                cout << "Surface du rectangle : " << ((Rectangle*)q)->calculSurface() << endl;
+
+            }
+            else if( nbDim == 1 ) {
+                cout << "Perimetre du carre : " << q->calculPerimetre() << endl;
+                cout << "Surface du carre : " << ((Carre*)q)->calculSurface() << endl;
+            }
+        }
+
+        delete quad3;
+    }
+    
+- Exercice 9
+modification/compilation/analyse des erreurs
+effacer le programme et tenter de le réécrire de tête, compiler, exécuter
+ajouter le code qui vérifie que les cotes sont toujours initialisés avec des entiers > 0. Sinon afficher un message d'erreur.
+transformer les if dans la boucle for en switch
+remplacer la boucle for par un while
+
